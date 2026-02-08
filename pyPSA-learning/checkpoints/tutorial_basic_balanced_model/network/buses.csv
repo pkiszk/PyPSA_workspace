@@ -1,0 +1,93 @@
+name,v_nom,carrier,area,qualifier
+CZ battery large electricity,1.0,battery large electricity CZ CZ,CZ,
+CZ biomass wood,1.0,biomass wood CZ CZ,CZ,
+CZ electricity in,1.0,electricity in CZ CZ,CZ,
+CZ electricity out,1.0,electricity out CZ CZ,CZ,
+CZ hard coal,1.0,hard coal CZ CZ,CZ,
+CZ hydro PSH electricity,1.0,hydro PSH electricity CZ CZ,CZ,
+CZ hydrogen,1.0,hydrogen CZ CZ,CZ,
+CZ lignite,1.0,lignite CZ CZ,CZ,
+CZ natural gas,1.0,natural gas CZ CZ,CZ,
+DE battery large electricity,1.0,battery large electricity DE DE,DE,
+DE biomass wood,1.0,biomass wood DE DE,DE,
+DE electricity in,1.0,electricity in DE DE,DE,
+DE electricity out,1.0,electricity out DE DE,DE,
+DE hard coal,1.0,hard coal DE DE,DE,
+DE hydro PSH electricity,1.0,hydro PSH electricity DE DE,DE,
+DE hydrogen,1.0,hydrogen DE DE,DE,
+DE lignite,1.0,lignite DE DE,DE,
+DE natural gas,1.0,natural gas DE DE,DE,
+LT battery large electricity,1.0,battery large electricity LT LT,LT,
+LT biomass wood,1.0,biomass wood LT LT,LT,
+LT electricity in,1.0,electricity in LT LT,LT,
+LT electricity out,1.0,electricity out LT LT,LT,
+LT hydro PSH electricity,1.0,hydro PSH electricity LT LT,LT,
+LT hydrogen,1.0,hydrogen LT LT,LT,
+LT natural gas,1.0,natural gas LT LT,LT,
+PL BEV electricity,1.0,BEV electricity,PL,
+PL ICE vehicle fuel,1.0,ICE vehicle fuel,PL,
+PL battery large electricity HMV,1.0,battery large electricity,PL,HMV
+PL battery large electricity HMV vRES,1.0,battery large electricity,PL,HMV vRES
+PL biogas,1.0,biogas,PL,
+PL biogas substrate,1.0,biogas substrate,PL,
+PL biogas upgrading,1.0,biogas,PL,upgrading
+PL biomass agriculture,1.0,biomass agriculture,PL,
+PL biomass wood,1.0,biomass wood,PL,
+PL electricity in,1.0,electricity in,PL,
+PL electricity in EHV,400.0,electricity in,PL,EHV
+PL electricity in HMV,1.0,electricity in,PL,HMV
+PL electricity in HMV vRES,1.0,electricity in,PL,HMV vRES
+PL electricity in LV,1.0,electricity in,PL,LV
+PL electricity out HMV,1.0,electricity out,PL,HMV
+PL electricity out HMV vRES,1.0,electricity out,PL,HMV vRES
+PL electricity out LV,1.0,electricity out,PL,LV
+PL hard coal,1.0,hard coal,PL,
+PL heat centralised in biomass and biogas,1.0,heat centralised in,PL,biomass and biogas
+PL heat centralised in hard coal,1.0,heat centralised in,PL,hard coal
+PL heat centralised in natural gas,1.0,heat centralised in,PL,natural gas
+PL heat centralised in other,1.0,heat centralised in,PL,other
+PL heat centralised out biomass and biogas,1.0,heat centralised out,PL,biomass and biogas
+PL heat centralised out hard coal,1.0,heat centralised out,PL,hard coal
+PL heat centralised out natural gas,1.0,heat centralised out,PL,natural gas
+PL heat centralised out other,1.0,heat centralised out,PL,other
+PL heat decentralised biomass,1.0,heat decentralised,PL,biomass
+PL heat decentralised hard coal,1.0,heat decentralised,PL,hard coal
+PL heat decentralised heat pump,1.0,heat decentralised,PL,heat pump
+PL heat decentralised natural gas,1.0,heat decentralised,PL,natural gas
+PL heat decentralised other,1.0,heat decentralised,PL,other
+PL heat decentralised other RES,1.0,heat decentralised,PL,other RES
+PL heat decentralised resistive heater,1.0,heat decentralised,PL,resistive heater
+PL heat storage large tank heat biomass and biogas,1.0,heat storage large tank heat,PL,biomass and biogas
+PL heat storage large tank heat hard coal,1.0,heat storage large tank heat,PL,hard coal
+PL heat storage large tank heat natural gas,1.0,heat storage large tank heat,PL,natural gas
+PL heat storage large tank heat other,1.0,heat storage large tank heat,PL,other
+PL heat storage small heat heat pump,1.0,heat storage small heat,PL,heat pump
+PL hydro PSH electricity HMV,1.0,hydro PSH electricity,PL,HMV
+PL hydrogen,1.0,hydrogen,PL,
+PL hydrogen natural gas reforming,1.0,hydrogen,PL,natural gas reforming
+PL light vehicle mobility,1.0,light vehicle mobility,PL,
+PL light vehicle mobility BEV,1.0,light vehicle mobility,PL,BEV
+PL light vehicle mobility ICE vehicle,1.0,light vehicle mobility,PL,ICE vehicle
+PL lignite,1.0,lignite,PL,
+PL lulucf,1.0,lulucf,PL,
+PL natural gas,1.0,natural gas,PL,
+PL other fuel,1.0,other fuel,PL,
+PL other heating,1.0,other heating,PL,
+PL process emissions,1.0,process emissions,PL,
+PL space heating,1.0,space heating,PL,
+PL water heating,1.0,water heating,PL,
+SE battery large electricity,1.0,battery large electricity SE SE,SE,
+SE biomass wood,1.0,biomass wood SE SE,SE,
+SE electricity in,1.0,electricity in SE SE,SE,
+SE electricity out,1.0,electricity out SE SE,SE,
+SE hydrogen,1.0,hydrogen SE SE,SE,
+SE natural gas,1.0,natural gas SE SE,SE,
+SK battery large electricity,1.0,battery large electricity SK SK,SK,
+SK biomass wood,1.0,biomass wood SK SK,SK,
+SK electricity in,1.0,electricity in SK SK,SK,
+SK electricity out,1.0,electricity out SK SK,SK,
+SK hard coal,1.0,hard coal SK SK,SK,
+SK hydro PSH electricity,1.0,hydro PSH electricity SK SK,SK,
+SK hydrogen,1.0,hydrogen SK SK,SK,
+SK lignite,1.0,lignite SK SK,SK,
+SK natural gas,1.0,natural gas SK SK,SK,

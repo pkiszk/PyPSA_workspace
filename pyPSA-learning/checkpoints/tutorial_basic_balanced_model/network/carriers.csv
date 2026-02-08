@@ -1,0 +1,107 @@
+name,co2_emissions,color,order,aggregation
+BEV,0.0,#153d80,521,BEV
+BEV V2G,0.0,#153d80,251,BEV
+BEV battery,0.0,#153d80,522,BEV
+BEV charger,0.0,#153d80,523,BEV
+DSR reduction,0.0,#1b1c1e,291,DSR
+ICE vehicle,0.0,#263b46,501,ICE vehicle
+ICE vehicle fuel supply,0.25,#263b46,500,ICE vehicle fuel supply
+battery large charger,0.0,#458aff,242,battery large
+battery large power,0.0,#458aff,241,battery large
+battery large storage,0.0,#458aff,240,battery large
+biogas CHP,0.0,#816d66,183,biogas CHP
+biogas production,0.0,#816d66,181,biogas production
+biogas substrate supply,0.0,#816d66,180,biogas substrate supply
+biogas upgrading,-0.12,#816d66,182,biomethane production
+biomass agriculture CHP,0.0,#ab9d99,171,biomass CHP
+biomass agriculture CHP CC,-0.36,#ab9d99,172,biomass CHP
+biomass agriculture heat,0.0,#ab9d99,173,biomass heat
+biomass agriculture supply,0.0,#ab9d99,170,biomass supply
+biomass wood CHP,0.0,#ab9d99,162,biomass CHP
+biomass wood boiler,0.0,#ab9d99,431,biomass wood boiler
+biomass wood final use,0.0,#b6b6b7,12,biomass wood final use
+biomass wood heat,0.0,#ab9d99,163,biomass heat
+biomass wood power,0.0,#ab9d99,161,biomass power
+biomass wood supply,0.0,#ab9d99,160,biomass supply
+building retrofits,0.0,#1b1c1e,491,building retrofits
+centralised other heating,0.0,#b6b6b7,393,centralised heating
+centralised space heating,0.0,#b6b6b7,391,centralised heating
+centralised water heating,0.0,#b6b6b7,392,centralised heating
+connection HMV-vRES,0.0,#ffd54f,1212,distribution grid
+connection vRES-HMV,0.0,#ffd54f,1213,distribution grid
+decentralised space heating,0.0,#b6b6b7,481,decentralised heating
+decentralised water heating,0.0,#b6b6b7,482,decentralised heating
+direct line vRES,0.0,#ffd54f,1214,distribution grid
+distribution HMV,0.0,#ffd54f,1211,distribution grid
+distribution LV,0.0,#ffab00,1217,distribution grid
+district heating,0.0,#b6b6b7,1301,district heating
+electricity HMV final use,0.0,#b6b6b7,2,electricity final use
+electricity LV final use,0.0,#b6b6b7,3,electricity final use
+electricity export,0.0,#767778,283,electricity import or export
+electricity final use,0.0,#b6b6b7,1,electricity final use
+electricity grid,0.0,#b6b6b7,1221,electricity grid
+electricity import,0.0,#767778,281,electricity import or export
+hard coal CHP,0.0,#b5c6cf,113,hard coal CHP
+hard coal boiler,0.0,#b5c6cf,401,hard coal boiler
+hard coal final use,0.0,#b6b6b7,9,hard coal final use
+hard coal heat,0.0,#b5c6cf,114,hard coal heat
+hard coal power,0.0,#b5c6cf,111,hard coal power
+hard coal supply,0.34,#b5c6cf,110,hard coal supply
+heat pump large,0.0,#f4a6a5,301,heat pump large
+heat pump small,0.0,#f4a6a5,451,heat pump small
+heat storage large tank,0.0,#aa1817,330,heat storage large
+heat storage large tank charge,0.0,#aa1817,332,heat storage large
+heat storage large tank discharge,0.0,#aa1817,331,heat storage large
+heat storage small,0.0,#aa1817,470,heat storage small
+heat storage small charge,0.0,#aa1817,472,heat storage small
+heat storage small discharge,0.0,#aa1817,471,heat storage small
+hydro PSH power,0.0,#82b1ff,231,hydro PSH
+hydro PSH pump,0.0,#82b1ff,232,hydro PSH
+hydro PSH storage,0.0,#82b1ff,230,hydro PSH
+hydro ROR,0.0,#2979ff,201,hydro ROR
+hydrogen,0.0,#b6b6b7,691,hydrogen
+hydrogen CHP,0.0,#2ad4ff,193,hydrogen CHP
+hydrogen electrolysis,0.0,#80e5ff,611,hydrogen electrolysis
+hydrogen final use,0.0,#b6b6b7,8,hydrogen final use
+hydrogen heat,0.0,#2ad4ff,194,hydrogen heat
+hydrogen power,0.0,#2ad4ff,191,hydrogen power
+hydrogen power peaker,0.0,#2ad4ff,192,hydrogen power
+hydrogen storage,0.0,#00aad4,612,hydrogen storage
+light vehicle mobility,0.0,#b6b6b7,591,light vehicle mobility
+light vehicle mobility final use,0.0,#b6b6b7,7,light vehicle mobility final use
+lignite power,0.0,#72a0b7,121,lignite power
+lignite supply,0.4,#72a0b7,120,lignite supply
+lulucf final use,0.0,#b6b6b7,14,lulucf final use
+lulucf supply,-1.0,#b6b6b7,802,lulucf supply
+natural gas CHP,0.0,#4b7689,133,natural gas CHP
+natural gas boiler,0.0,#4b7689,411,natural gas boiler
+natural gas final use,0.0,#b6b6b7,10,natural gas final use
+natural gas heat,0.0,#4b7689,136,natural gas heat
+natural gas power,0.0,#4b7689,131,natural gas power
+natural gas power peaker,0.0,#4b7689,132,natural gas power
+natural gas reforming,0.0,#4b7689,601,natural gas reforming
+natural gas supply,0.2,#4b7689,130,natural gas supply
+nuclear power,0.0,#d6c0bd,151,nuclear power
+other CHP,0.0,#263b46,141,other CHP
+other RES heat,0.0,#573c33,441,other RES heat
+other boiler,0.0,#263b46,421,other boiler
+other fuel final use,0.0,#b6b6b7,11,other fuel final use
+other fuel supply,0.27,#263b46,140,other fuel supply
+other heat,0.0,#263b46,142,other heat
+other heating final use,0.0,#b6b6b7,6,heat final use
+process emissions final use,0.0,#b6b6b7,13,process emissions final use
+process emissions supply,1.0,#b6b6b7,801,process emissions supply
+resistive heater large,0.0,#e94d4c,311,resistive heater large
+resistive heater small,0.0,#e94d4c,461,resistive heater small
+solar PV ground,0.0,#f3b3fd,221,solar PV ground
+solar PV roof,0.0,#e040fb,225,solar PV roof
+space heating final use,0.0,#b6b6b7,4,heat final use
+transformation EHV-HMV,0.0,#ffecb3,1203,transmission grid
+transformation HMV-EHV,0.0,#ffecb3,1204,transmission grid
+transformation HMV-LV,0.0,#ffd54f,1215,distribution grid
+transformation LV-HMV,0.0,#ffd54f,1216,distribution grid
+transmission line AC,0.0,#ffecb3,1201,transmission grid
+transmission line DC,0.0,#ffecb3,1202,transmission grid
+water heating final use,0.0,#b6b6b7,5,heat final use
+wind offshore,0.0,#69f0ae,213,wind offshore
+wind onshore,0.0,#b9f6ca,211,wind onshore

@@ -1,0 +1,7 @@
+name,bus,p_nom,p_nom_min,p_nom_max,sign,carrier,marginal_cost,build_year,lifetime,capital_cost,area,technology,aggregation,variable_cost,fixed_cost,investment_cost,annual_investment_cost
+PL electricity HMV final use HMV 2025,PL electricity out HMV,12152.191780821919,12152.191780821919,12152.191780821919,-1.0,electricity HMV final use,0.0,2025,1.0,0.0,PL,electricity HMV final use,electricity final use,0.0,0.0,0.0,0.0
+PL electricity LV final use LV 2025,PL electricity out LV,8817.191780821919,8817.191780821919,8817.191780821919,-1.0,electricity LV final use,0.0,2025,1.0,0.0,PL,electricity LV final use,electricity final use,0.0,0.0,0.0,0.0
+PL solar PV ground HMV vRES 2020,PL electricity in HMV vRES,1230.0,1230.0,1230.0,1.0,solar PV ground,0.0,2020,20.0,62000.0,PL,solar PV ground,solar PV ground,0.0,62000.0,0.0,0.0
+PL solar PV ground HMV vRES 2025,PL electricity in HMV vRES,11060.0,11060.0,11060.0,1.0,solar PV ground,0.0,2025,25.0,291036.59813543083,PL,solar PV ground,solar PV ground,0.0,55000.0,3500000.0,236036.59813543086
+PL wind onshore HMV vRES 2025,PL electricity in HMV vRES,4390.0,4390.0,4390.0,1.0,wind onshore,13.0,2025,25.0,599048.8074863395,PL,wind onshore,wind onshore,13.0,100000.0,7400000.0,499048.80748633953
+PL wind onshore old HMV vRES 2025,PL electricity in HMV vRES,6260.0,6260.0,6260.0,1.0,wind onshore,18.0,2025,1.0,170000.0,PL,wind onshore old,wind onshore,18.0,170000.0,0.0,0.0

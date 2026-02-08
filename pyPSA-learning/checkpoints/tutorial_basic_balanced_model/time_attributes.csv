@@ -1,0 +1,6 @@
+,carrier,technology,qualifier,attribute,profile_type
+0,electricity HMV final use,electricity HMV final use,none,p_set,electricity HMV final use load profile
+1,electricity LV final use,electricity LV final use,none,p_set,electricity LV final use load profile
+2,solar PV ground,solar PV ground,none,p_max_pu,vres availability profile
+3,wind onshore,wind onshore,none,p_max_pu,vres availability profile
+4,wind onshore,wind onshore old,none,p_max_pu,vres availability profile

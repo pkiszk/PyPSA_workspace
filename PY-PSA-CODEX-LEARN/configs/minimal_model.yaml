@@ -1,0 +1,28 @@
+base_model:
+  year: 2025
+  timeseries: mini
+  copperplate: true
+  trade: true
+  scenario_base: instrat_ambitious+trade
+  params_override:
+    constrained_energy_flows: none
+
+stages:
+  vres_generation:
+    enabled: true
+    component: Generator
+    technologies:
+      - wind onshore
+      - solar PV ground
+  electricity_demand:
+    enabled: true
+    component: Generator
+    carriers:
+      - electricity HMV final use
+      - electricity LV final use
+
+constraints:
+  enabled: false
+
+optimization:
+  enabled: false
