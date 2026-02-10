@@ -803,7 +803,7 @@ def main() -> None:
         custom_ep = col_inp.text_input(
             "Endpoint name", placeholder="e.g.  gen-jw  or  his-wlk-cal"
         )
-        probe_clicked = col_btn.button("Probe", use_container_width=True)
+        probe_clicked = col_btn.button("Probe", width="stretch")
 
         if "probed_ep" not in st.session_state:
             st.session_state.probed_ep = ""
@@ -960,24 +960,7 @@ def main() -> None:
 
         # Preview
         st.subheader(f"Preview (first 50 rows of {len(df):,})")
-        st.dataframe(df.head(50), use_container_width=True)
+        st.dataframe(df.head(50), width="stretch")
 
 
-def _running_in_streamlit() -> bool:
-    try:
-        from streamlit.runtime.scriptrunner import get_script_run_ctx
-    except Exception:  # pragma: no cover - fallback for older streamlit
-        return False
-    return get_script_run_ctx() is not None
-
-
-if __name__ == "__main__":
-    # If invoked directly, re-launch via `streamlit run`.
-    if _running_in_streamlit():
-        main()
-    else:
-        import subprocess
-        import sys
-        raise SystemExit(
-            subprocess.call(["streamlit", "run", __file__] + sys.argv[1:])
-        )
+main()
