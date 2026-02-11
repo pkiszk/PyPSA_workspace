@@ -1,0 +1,89 @@
+node,resource_name,resource_code,direction,pol_min_power_of_unit,pol_min_power_of_unit_plant,pol_max_power_of_unit_plant,pol_max_power_of_unit,from_dtime,from_dtime_utc,to_dtime,to_dtime_utc,time_conditions,limiting_element,add_cond,business_date,publication_ts,publication_ts_utc
+,,"Solina H1, Solina H2, Solina H3, Solina H4",,,,144.0,,,,,,,,,2025-01-01,2025-01-01 22:15:45.614,2025-01-01 21:15:45.614
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,434.0,,,,,,,,,2025-01-01,2025-01-01 22:15:45.614,2025-01-01 21:15:45.614
+,,"Jaworzno 2  B7, Jaworzno 3 B1, Jaworzno 3 B2, Jaworzno 3 B4, Jaworzno 3 B5, Jaworzno 3 B6",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,Jaworzno 2  B7,,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,2.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Kozienice 2 B09, Kozienice 2 B10",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Turów B02, Turów B03, Turów B04, Turów B05, Turów B06",,,2.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Ostrołęka B B01, Ostrołęka B B02",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Bełchatów B02, Bełchatów B03, Bełchatów B04, Bełchatów B05",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Bełchatów B06, Bełchatów B07, Bełchatów B08, Bełchatów B09, Bełchatów B10, Bełchatów B11, Bełchatów B12, Bełchatów B14",,,2.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Rybnik B5, Rybnik B6",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Opole B5, Opole B6",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8",,,2.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,3.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Połaniec B2, Połaniec B3, Połaniec B4",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Opole B1, Opole B2, Opole B3, Opole B4, Opole B5, Opole B6",,,1.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Połaniec B2, Połaniec B3, Połaniec B4, Połaniec B5, Połaniec B6, Połaniec B7",,,2.0,,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"Solina H1, Solina H2, Solina H3, Solina H4",,,,177.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,584.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,434.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,Bełchatów B05,,,,248.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,Bełchatów B03,,,,247.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,Bełchatów B04,,,,249.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,Bełchatów B02,,,,241.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,584.0,,,,,,,,,2025-01-02,2025-01-02 22:15:05.453,2025-01-02 21:15:05.453
+,,Jaworzno 2  B7,,,1.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8",,,2.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8",,,1.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,2.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,3.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Turów B02, Turów B03, Turów B04, Turów B05, Turów B06",,,2.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Ostrołęka B B01, Ostrołęka B B02",,,1.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Połaniec B2, Połaniec B3, Połaniec B4",,,1.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Bełchatów B02, Bełchatów B03, Bełchatów B04, Bełchatów B05",,,1.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Bełchatów B06, Bełchatów B07, Bełchatów B08, Bełchatów B09, Bełchatów B10, Bełchatów B11, Bełchatów B12, Bełchatów B14",,,2.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Rybnik B5, Rybnik B6",,,1.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Jaworzno 2  B7, Jaworzno 3 B1, Jaworzno 3 B2, Jaworzno 3 B3, Jaworzno 3 B4, Jaworzno 3 B5, Jaworzno 3 B6",,,2.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Opole B5, Opole B6",,,1.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B2, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B6, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,,2919.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Połaniec B2, Połaniec B3, Połaniec B4, Połaniec B5, Połaniec B6, Połaniec B7",,,2.0,,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Bełchatów B02, Bełchatów B05",,,,439.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,434.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,,3.0,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Solina H1, Solina H2, Solina H3, Solina H4",,,,184.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B2, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B6, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,,2519.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,284.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B2, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B6, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,,2119.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,135.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Kozienice 1 B1, Kozienice 1 B2, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B6, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,,2519.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,334.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,434.0,,,,,,,,,2025-01-03,2025-01-03 22:34:30.277,2025-01-03 21:34:30.277
+,,"Jaworzno 2  B7, Jaworzno 3 B1, Jaworzno 3 B2, Jaworzno 3 B4, Jaworzno 3 B5, Jaworzno 3 B6",,,1.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8",,,1.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,2.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Turów B02, Turów B03, Turów B04, Turów B05, Turów B06",,,2.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Ostrołęka B B01, Ostrołęka B B02",,,1.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Bełchatów B02, Bełchatów B03, Bełchatów B04, Bełchatów B05",,,1.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Bełchatów B06, Bełchatów B07, Bełchatów B08, Bełchatów B09, Bełchatów B10, Bełchatów B11, Bełchatów B12, Bełchatów B14",,,2.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Rybnik B5, Rybnik B6",,,1.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Jaworzno 2  B7, Łagisza B10",,,1.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Opole B5, Opole B6",,,1.0,,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Solina H1, Solina H2, Solina H3, Solina H4",,,,164.0,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,534.0,,,,,,,,,2025-01-04,2025-01-04 22:13:15.290,2025-01-04 21:13:15.290
+,,"Jaworzno 2  B7, Jaworzno 3 B1, Jaworzno 3 B2, Jaworzno 3 B4, Jaworzno 3 B5, Jaworzno 3 B6",,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,Jaworzno 2  B7,,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Opole B5, Opole B6",,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8",,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,2.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Turów B02, Turów B03, Turów B04, Turów B05, Turów B06",,,2.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Ostrołęka B B01, Ostrołęka B B02",,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Bełchatów B02, Bełchatów B03, Bełchatów B04, Bełchatów B05",,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Bełchatów B06, Bełchatów B07, Bełchatów B08, Bełchatów B09, Bełchatów B10, Bełchatów B11, Bełchatów B12, Bełchatów B14",,,2.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Solina H1, Solina H2, Solina H3, Solina H4",,,,169.0,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Rybnik B5, Rybnik B6",,,1.0,,,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"ESP Żarnowiec H1, ESP Żarnowiec H2, ESP Żarnowiec H3, ESP Żarnowiec H4",,,,,3.0,,,,,,,,2025-01-05,2025-01-05 22:16:15.499,2025-01-05 21:16:15.499
+,,"Jaworzno 2  B7, Jaworzno 3 B1, Jaworzno 3 B2, Jaworzno 3 B4, Jaworzno 3 B5, Jaworzno 3 B6",,,1.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Opole B5, Opole B6",,,1.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8",,,1.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Kozienice 1 B1, Kozienice 1 B3, Kozienice 1 B4, Kozienice 1 B5, Kozienice 1 B7, Kozienice 1 B8, Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,2.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Kozienice 2 B09, Kozienice 2 B10, Kozienice 2 B11",,,1.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Turów B02, Turów B03, Turów B04, Turów B05, Turów B06",,,2.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Ostrołęka B B01, Ostrołęka B B02",,,1.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Bełchatów B02, Bełchatów B03, Bełchatów B04, Bełchatów B05",,,1.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Bełchatów B06, Bełchatów B07, Bełchatów B08, Bełchatów B09, Bełchatów B10, Bełchatów B11, Bełchatów B12, Bełchatów B14",,,2.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Solina H1, Solina H2, Solina H3, Solina H4",,,,159.0,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438
+,,"Rybnik B5, Rybnik B6",,,1.0,,,,,,,,,,2025-01-06,2025-01-06 23:39:30.438,2025-01-06 22:39:30.438

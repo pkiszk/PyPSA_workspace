@@ -4,7 +4,7 @@ PSE API Streamlit GUI
 
 Interactive browser-based tool to pull data from the PSE (Polskie Sieci
 Elektroenergetyczne) market-data API at https://api.raporty.pse.pl/api.
-
+https://api.raporty.pse.pl/EndpointsMap.pdf
 Usage:
     streamlit run pse_gui.py
 
@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import io
 import json
+import re
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
@@ -43,8 +44,8 @@ COMMON_FIELDS = {
 }
 
 # ---------------------------------------------------------------------------
-# Endpoint catalog  (hard-coded; PSE API has no $metadata endpoint)
-# Verified live 2026-02-10 by probing api.raporty.pse.pl
+# Curated endpoint catalog.
+# At runtime this is backfilled/extended from the official /api/openapi schema.
 # ---------------------------------------------------------------------------
 
 # Common fields for daily-resolution endpoints (no period/period_utc)
@@ -658,10 +659,44 @@ def format_dt(dt_value: datetime) -> str:
     return dt_value.strftime("%Y-%m-%d %H:%M:%S")
 
 
-def build_filter(start_dt: datetime, end_dt_exclusive: datetime) -> str:
+def format_date(d_value: date) -> str:
+    return d_value.strftime("%Y-%m-%d")
+
+
+TIME_FIELD_PRIORITY = [
+    "dtime_utc",
+    "from_dtime_utc",
+    "to_dtime_utc",
+    "business_date",
+    "publication_ts_utc",
+    "dtime",
+    "from_dtime",
+    "to_dtime",
+    "publication_ts",
+]
+
+
+def choose_time_field(fields: Iterable[str]) -> str | None:
+    field_set = set(fields)
+    for candidate in TIME_FIELD_PRIORITY:
+        if candidate in field_set:
+            return candidate
+    return None
+
+
+def build_filter_for_time_field(
+    time_field: str,
+    start_dt: datetime,
+    end_dt_exclusive: datetime,
+) -> str:
+    if time_field == "business_date":
+        return (
+            f"business_date ge '{format_date(start_dt.date())}'"
+            f" and business_date lt '{format_date(end_dt_exclusive.date())}'"
+        )
     return (
-        f"dtime_utc ge '{format_dt(start_dt)}'"
-        f" and dtime_utc lt '{format_dt(end_dt_exclusive)}'"
+        f"{time_field} ge '{format_dt(start_dt)}'"
+        f" and {time_field} lt '{format_dt(end_dt_exclusive)}'"
     )
 
 
@@ -731,19 +766,85 @@ def probe_endpoint(endpoint: str, timeout: int = 15) -> list[str] | str:
 
     Returns a list of field names on success, or an error string on failure.
     """
-    params = {"$first": 1, "$orderby": "dtime_utc desc"}
-    try:
-        data = fetch_json(
-            f"{BASE_URL}/{endpoint.strip().lstrip('/')}",
-            params,
-            timeout,
+    url = f"{BASE_URL}/{endpoint.strip().lstrip('/')}"
+    attempts = [
+        {"$first": 1, "$orderby": "dtime_utc desc"},
+        {"$first": 1, "$orderby": "from_dtime_utc desc"},
+        {"$first": 1, "$orderby": "business_date desc"},
+        {"$first": 1},
+    ]
+    last_error = ""
+    for params in attempts:
+        try:
+            data = fetch_json(url, params, timeout)
+            values = data.get("value", [])
+            if values:
+                return list(values[0].keys())
+        except Exception as exc:  # noqa: BLE001
+            last_error = str(exc)
+            continue
+
+    if last_error:
+        return f"Error: {last_error}"
+    return "Endpoint returned no records (may need a date filter)."
+
+
+def _compact_text(value: str | None) -> str:
+    if not value:
+        return ""
+    return " ".join(value.strip().split())
+
+
+@st.cache_data(show_spinner=False, ttl=3600)
+def discover_openapi_catalog(timeout: int = 20) -> dict[str, dict]:
+    """Build endpoint catalog from the official OpenAPI specification."""
+    req = urllib.request.Request(
+        f"{BASE_URL}/openapi",
+        headers={"User-Agent": "PSE-GUI/1.0"},
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        spec = json.load(response)
+
+    paths = spec.get("paths", {})
+    schemas = spec.get("components", {}).get("schemas", {})
+    openapi_catalog: dict[str, dict] = {}
+
+    for path, methods in paths.items():
+        if not re.fullmatch(r"/[a-z0-9][a-z0-9-]*", path):
+            continue
+        endpoint = path.lstrip("/")
+        get_op = (methods or {}).get("get", {})
+
+        description = _compact_text(get_op.get("summary")) or _compact_text(get_op.get("description"))
+        if not description:
+            description = "Endpoint discovered from OpenAPI schema."
+
+        fields: dict[str, str] = {}
+        schema = (
+            (get_op.get("responses", {}).get("200", {}).get("content", {}).get("application/json", {})).get("schema")
+            or {}
         )
-        values = data.get("value", [])
-        if not values:
-            return "Endpoint returned no records (may need a date filter)."
-        return list(values[0].keys())
-    except Exception as exc:  # noqa: BLE001
-        return f"Error: {exc}"
+        value_items_ref = (
+            (schema.get("properties", {}).get("value", {}).get("items", {})).get("$ref")
+            if isinstance(schema, dict)
+            else None
+        )
+        if isinstance(value_items_ref, str) and value_items_ref.startswith("#/components/schemas/"):
+            schema_name = value_items_ref.rsplit("/", 1)[-1]
+            properties = (schemas.get(schema_name, {}).get("properties")) or {}
+            for field_name, field_meta in properties.items():
+                field_desc = ""
+                if isinstance(field_meta, dict):
+                    field_desc = _compact_text(field_meta.get("description"))
+                fields[field_name] = field_desc or field_name
+
+        openapi_catalog[endpoint] = {
+            "label": f"{endpoint} – {description}",
+            "description": description,
+            "fields": fields,
+        }
+
+    return openapi_catalog
 
 
 # ---------------------------------------------------------------------------
@@ -788,12 +889,42 @@ def main() -> None:
         st.caption("Tip: large date ranges with per-unit data (gen-jw) can be tens of thousands of rows per day.")
 
     # ── Main – Endpoint selection ────────────────────────────────────────────
-    endpoint_options = list(ENDPOINT_CATALOG.keys()) + [CUSTOM_OPTION]
-    endpoint_labels = [ENDPOINT_CATALOG[k]["label"] for k in ENDPOINT_CATALOG] + [CUSTOM_OPTION]
-    label_to_key = dict(zip(endpoint_labels, endpoint_options))
+    local_endpoint_keys = list(ENDPOINT_CATALOG.keys())
+    openapi_catalog: dict[str, dict] = {}
+    discovery_error = ""
+    try:
+        openapi_catalog = discover_openapi_catalog(timeout=int(timeout))
+    except Exception as exc:  # noqa: BLE001
+        discovery_error = str(exc)
+
+    runtime_catalog = dict(openapi_catalog)
+    runtime_catalog.update(ENDPOINT_CATALOG)  # Keep curated local descriptions/fields.
+
+    endpoint_keys = list(local_endpoint_keys)
+    for endpoint in sorted(openapi_catalog):
+        if endpoint not in ENDPOINT_CATALOG:
+            endpoint_keys.append(endpoint)
+    endpoint_keys.append(CUSTOM_OPTION)
+
+    endpoint_labels: list[str] = []
+    label_to_key: dict[str, str] = {}
+    for key in endpoint_keys:
+        if key == CUSTOM_OPTION:
+            label = CUSTOM_OPTION
+        elif key in runtime_catalog:
+            label = runtime_catalog[key]["label"]
+        else:
+            label = f"{key} – endpoint (auto-discovered)"
+        endpoint_labels.append(label)
+        label_to_key[label] = key
 
     selected_label = st.selectbox("Endpoint", endpoint_labels)
     selected_key = label_to_key[selected_label]
+    if discovery_error:
+        st.caption(
+            "OpenAPI discovery unavailable "
+            f"(using local catalog only): {discovery_error}"
+        )
 
     # ── Custom endpoint probe ───────────────────────────────────────────────
     discovered_fields: list[str] = []
@@ -836,9 +967,48 @@ def main() -> None:
             st.stop()
     else:
         active_endpoint = selected_key
-        catalog_entry = ENDPOINT_CATALOG[selected_key]
-        st.info(catalog_entry["description"])
-        field_map = catalog_entry["fields"]  # name → description
+        if selected_key in runtime_catalog:
+            catalog_entry = runtime_catalog[selected_key]
+            st.info(catalog_entry["description"])
+            field_map = catalog_entry["fields"]  # name → description
+            if not field_map:
+                result = probe_endpoint(selected_key, timeout=int(timeout))
+                if isinstance(result, list):
+                    field_map = {f: f for f in result}
+                else:
+                    st.warning(
+                        f"Field auto-discovery failed for `{selected_key}`: {result}"
+                    )
+                    manual_fields = st.text_input(
+                        "Fields (comma-separated)",
+                        placeholder="e.g. dtime_utc,business_date,value",
+                    )
+                    parsed = [f.strip() for f in manual_fields.split(",") if f.strip()]
+                    if not parsed:
+                        st.info("Enter at least one field name to continue.")
+                        st.stop()
+                    field_map = {f: f for f in parsed}
+        else:
+            st.info(
+                "Endpoint discovered from the live PSE endpoint list. "
+                "Fields are auto-probed."
+            )
+            result = probe_endpoint(selected_key, timeout=int(timeout))
+            if isinstance(result, list):
+                field_map = {f: f for f in result}
+            else:
+                st.warning(
+                    f"Field auto-discovery failed for `{selected_key}`: {result}"
+                )
+                manual_fields = st.text_input(
+                    "Fields (comma-separated)",
+                    placeholder="e.g. dtime_utc,business_date,value",
+                )
+                parsed = [f.strip() for f in manual_fields.split(",") if f.strip()]
+                if not parsed:
+                    st.info("Enter at least one field name to continue.")
+                    st.stop()
+                field_map = {f: f for f in parsed}
 
     # ── Field selector ──────────────────────────────────────────────────────
     st.subheader("Fields")
@@ -895,12 +1065,23 @@ def main() -> None:
             timeout_seconds=int(timeout),
         )
 
+        time_field = choose_time_field(field_map.keys())
         params = {
-            "$filter": build_filter(config.start_dt, config.end_dt_exclusive),
-            "$orderby": "dtime_utc asc",
             "$first": config.page_size,
             "$select": ",".join(chosen_fields),
         }
+        if time_field:
+            params["$filter"] = build_filter_for_time_field(
+                time_field,
+                config.start_dt,
+                config.end_dt_exclusive,
+            )
+            params["$orderby"] = f"{time_field} asc"
+        else:
+            st.info(
+                "No supported time field detected for this endpoint; "
+                "exporting without date filter/order."
+            )
 
         log_area = st.empty()
         log_lines: list[str] = []
