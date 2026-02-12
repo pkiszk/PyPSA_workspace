@@ -16,12 +16,15 @@ from __future__ import annotations
 
 import io
 import json
+import math
 import re
+import time as time_module
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta, timezone
 from typing import Iterable
+from urllib.error import HTTPError, URLError
 
 import pandas as pd
 import streamlit as st
@@ -31,6 +34,9 @@ import streamlit as st
 # ---------------------------------------------------------------------------
 
 BASE_URL = "https://api.raporty.pse.pl/api"
+DEFAULT_CHUNK_HOURS = 24
+DEFAULT_MAX_RETRIES = 3
+DEFAULT_RETRY_BACKOFF_SECONDS = 1.0
 
 # Fields that are common to (almost) every endpoint — shown but not filtered
 COMMON_FIELDS = {
@@ -653,6 +659,7 @@ class FetchConfig:
     end_dt_exclusive: datetime
     page_size: int
     timeout_seconds: int
+    chunk_hours: int
 
 
 def format_dt(dt_value: datetime) -> str:
@@ -704,12 +711,32 @@ def encode_params(params: dict) -> str:
     return urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
 
 
-def fetch_json(url: str, params: dict | None, timeout_seconds: int) -> dict:
+def fetch_json(
+    url: str,
+    params: dict | None,
+    timeout_seconds: int,
+    max_retries: int = DEFAULT_MAX_RETRIES,
+    backoff_seconds: float = DEFAULT_RETRY_BACKOFF_SECONDS,
+) -> dict:
     if params:
         url = f"{url}?{encode_params(params)}"
     req = urllib.request.Request(url, headers={"User-Agent": "PSE-GUI/1.0"})
-    with urllib.request.urlopen(req, timeout=timeout_seconds) as r:
-        return json.load(r)
+    for attempt in range(max_retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout_seconds) as r:
+                return json.load(r)
+        except HTTPError as exc:
+            if exc.code >= 500 and attempt < max_retries:
+                wait = backoff_seconds * (2**attempt)
+                time_module.sleep(wait)
+                continue
+            raise
+        except URLError:
+            if attempt < max_retries:
+                wait = backoff_seconds * (2**attempt)
+                time_module.sleep(wait)
+                continue
+            raise
 
 
 def fetch_all(
@@ -733,6 +760,67 @@ def fetch_all(
         next_params = None
         if progress_cb:
             progress_cb(page, len(values), len(records))
+
+    return records
+
+
+def compute_chunk_end(
+    chunk_start: datetime,
+    end_dt_exclusive: datetime,
+    chunk_hours: int,
+    time_field: str,
+) -> datetime:
+    if chunk_hours <= 0:
+        raise ValueError("chunk_hours must be > 0")
+    if time_field == "business_date":
+        chunk_days = max(1, int(math.ceil(chunk_hours / 24)))
+        step = timedelta(days=chunk_days)
+    else:
+        step = timedelta(hours=chunk_hours)
+    return min(chunk_start + step, end_dt_exclusive)
+
+
+def fetch_all_chunked(
+    endpoint: str,
+    base_params: dict,
+    time_field: str,
+    start_dt: datetime,
+    end_dt_exclusive: datetime,
+    timeout_seconds: int,
+    chunk_hours: int,
+    progress_cb=None,
+    chunk_cb=None,
+) -> list[dict]:
+    records: list[dict] = []
+    current_chunk_hours = max(1, chunk_hours)
+    chunk_index = 0
+    current_start = start_dt
+
+    while current_start < end_dt_exclusive:
+        chunk_end = compute_chunk_end(
+            current_start, end_dt_exclusive, current_chunk_hours, time_field
+        )
+        chunk_index += 1
+        if chunk_cb:
+            chunk_cb(chunk_index, current_start, chunk_end, current_chunk_hours)
+        params = {
+            **base_params,
+            "$filter": build_filter_for_time_field(
+                time_field, current_start, chunk_end
+            ),
+            "$orderby": f"{time_field} asc",
+        }
+        try:
+            chunk_records = fetch_all(
+                endpoint, params, timeout_seconds, progress_cb
+            )
+        except HTTPError as exc:
+            if exc.code >= 500 and current_chunk_hours > 1:
+                current_chunk_hours = max(1, current_chunk_hours // 2)
+                continue
+            raise
+        records.extend(chunk_records)
+        current_start = chunk_end
 
     return records
 
@@ -884,6 +972,14 @@ def main() -> None:
         page_size = st.number_input("Page size", min_value=100, max_value=5000, value=1000, step=100)
         timeout = st.number_input("Timeout (s)", min_value=10, max_value=300, value=60, step=10)
         out_dir = st.text_input("Output directory", value=".")
+        chunk_hours = st.number_input(
+            "Chunk size (hours)",
+            min_value=0,
+            max_value=720,
+            value=DEFAULT_CHUNK_HOURS,
+            step=1,
+            help="Use 0 to disable. For gen-jw, ~24h is about 90k rows.",
+        )
 
         st.divider()
         st.caption("Tip: large date ranges with per-unit data (gen-jw) can be tens of thousands of rows per day.")
@@ -1063,6 +1159,7 @@ def main() -> None:
             end_dt_exclusive=end_dt_exclusive,
             page_size=int(page_size),
             timeout_seconds=int(timeout),
+            chunk_hours=int(chunk_hours),
         )
 
         time_field = choose_time_field(field_map.keys())
@@ -1094,7 +1191,28 @@ def main() -> None:
 
         with st.spinner("Fetching data…"):
             try:
-                records = fetch_all(active_endpoint, params, config.timeout_seconds, on_page)
+                if time_field and config.chunk_hours > 0:
+                    def on_chunk(idx, chunk_start, chunk_end, hours):
+                        log_lines.append(
+                            f"chunk {idx}: {format_dt(chunk_start)} → {format_dt(chunk_end)} ({hours}h)"
+                        )
+                        log_area.markdown("\n\n".join(log_lines[-10:]))
+
+                    records = fetch_all_chunked(
+                        active_endpoint,
+                        params,
+                        time_field,
+                        config.start_dt,
+                        config.end_dt_exclusive,
+                        config.timeout_seconds,
+                        config.chunk_hours,
+                        on_page,
+                        on_chunk,
+                    )
+                else:
+                    records = fetch_all(
+                        active_endpoint, params, config.timeout_seconds, on_page
+                    )
             except Exception as exc:  # noqa: BLE001
                 st.error(f"Fetch failed: {exc}")
                 st.stop()
